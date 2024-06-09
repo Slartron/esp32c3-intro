@@ -35,7 +35,11 @@ Here is the rest of the wiring:
 | white          | SPK_1         |                     | Speaker + |
 | black          | SPK_2         |                     | Speaker - |
 
-For pins see [ESP32-C3-DevKitC-02](https://docs.espressif.com/projects/esp-idf/en/latest/esp32c3/hw-reference/esp32c3/user-guide-devkitc-02.html)
+[DFPlayer mini](https://wiki.dfrobot.com/DFPlayer_Mini_SKU_DFR0299) pin layout:
+
+![DFPlayer Mini Pin Map](./DFPlayerMini_pins.png)
+
+[Pin layout for ESP32-C3-DevKitC-02](https://docs.espressif.com/projects/esp-idf/en/latest/esp32c3/hw-reference/esp32c3/user-guide-devkitc-02.html)
 
 ## Getting started
 
@@ -73,6 +77,7 @@ Copy files and folders to controller with
 
 ```PS
 ampy -p COM11 put .\src\dfplayer
+ampy -p COM11 put .\src\dfplayermini.py
 ```
 
 ## Running
