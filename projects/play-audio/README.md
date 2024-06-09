@@ -35,11 +35,11 @@ Here is the rest of the wiring:
 | white          | SPK_1         |                     | Speaker + |
 | black          | SPK_2         |                     | Speaker - |
 
-[DFPlayer mini](https://wiki.dfrobot.com/DFPlayer_Mini_SKU_DFR0299) pin layout:
-
+Pin layout for [DFPlayer mini](https://wiki.dfrobot.com/DFPlayer_Mini_SKU_DFR0299):  
 ![DFPlayer Mini Pin Map](./DFPlayerMini_pins.png)
 
-[Pin layout for ESP32-C3-DevKitC-02](https://docs.espressif.com/projects/esp-idf/en/latest/esp32c3/hw-reference/esp32c3/user-guide-devkitc-02.html)
+Pin layout for [ESP32-C3-DevKitC-02](https://docs.espressif.com/projects/esp-idf/en/latest/esp32c3/hw-reference/esp32c3/user-guide-devkitc-02.html):  
+![ESP32-C3-DevKitC-02 Pin Layout](./esp32-c3-devkitc-02-v1-pinout.png)
 
 ## Getting started
 
