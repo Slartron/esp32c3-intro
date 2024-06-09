@@ -2,7 +2,7 @@
 
 ## About
 
-This micropython app demonstrates how to read data from a soil moisture sensor.
+This micropython app demonstrates how to read data from a soil moisture sensor. It's a [esp32-intro](../../README.md) project.
 
 ## Hardware
 

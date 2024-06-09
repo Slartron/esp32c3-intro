@@ -2,7 +2,7 @@
 
 ## About
 
-This micropython app demonstrates how to use the `NeoPixel` class to blink the programmalbe onboard LED on a EPS32 C3 micro controller.
+This micropython app demonstrates how to use the `NeoPixel` class to blink the programmalbe onboard LED on a EPS32 C3 micro controller. It's a [esp32-intro](../../README.md) project.
 
 ## Hardware
 

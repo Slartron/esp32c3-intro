@@ -2,7 +2,7 @@
 
 ## About
 
-This micropython app demonstrates how to play audio files.
+This micropython app demonstrates how to play audio files. It's a [esp32-intro](../../README.md) project.
 
 ## Hardware
 
