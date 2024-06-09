@@ -81,7 +81,7 @@ try:
     # read(uart=1,tx_pin=3, rx_pin=9)   # Sound yes - Read no
     # read(uart=1,tx_pin=4, rx_pin=9)   # Sound yes - Read no
     # read(uart=1,tx_pin=5, rx_pin=9)   # Sound yes - Read no
-    read(uart=1,tx_pin=6, rx_pin=5)   # Sound yes - Read no
+    read(uart=1,tx_pin=6, rx_pin=9)   # Sound yes - Read no
     # read(uart=1,tx_pin=7, rx_pin=9)   # Sound yes - Read no
     # read(uart=1,tx_pin=8, rx_pin=9)   # Sound yes - Read no
     # read(uart=1,tx_pin=9, rx_pin=9)   # Sound yes - Read no
