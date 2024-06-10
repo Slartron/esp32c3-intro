@@ -35,4 +35,6 @@ Copy file to controller with
  ampy -p COM11 -b 115200 put .\main.py
 ```
 
-# Running
+## Running
+
+Execution starts automatically when controller is reset.
