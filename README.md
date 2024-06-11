@@ -10,3 +10,4 @@ Here are the projects that are included in this repository, in order of creation
 2. [Soil Moisture Sensor](projects/soil-moisture-sensor/README.md)
 3. [Playing Audio Files](projects/play-audio/README.md)
 4. [Access Internet via WLAN](projects/http-request-wlan/README.md)
+5. [Webserver](projects/http-server/README.md)
