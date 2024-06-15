@@ -6,8 +6,8 @@ import time
 
 ## Defining global constants for application
 # Important values for application
-MIN_MOISTURE = const(30)                # moisture values below this value are considered to dry
-MAX_MOISTURE = const(70)                # moisture values above this value are considered to wet
+MIN_MOISTURE = const(0.3)               # moisture values below this value are considered to dry
+MAX_MOISTURE = const(0.7)               # moisture values above this value are considered to wet
 MEASURE_INTERVALL_MINUTES = const(0)    # intervall in minutes for measuring moisture
 PLAYER_SOUND_DURATION = const(3)        # duration in seconds how long a sound is being played
 PLAYER_VOLUME = const(15)               # volume for sound output
@@ -115,7 +115,7 @@ def get_moisture():
 def save_moisture(moisture):
     try:
         with open(DATAFILE, 'a', encoding='utf-8') as f:
-            f.write(f"{record_count}\t{get_rtc_timestamp()}\t{moisture}%\r\n")
+            f.write(f"{record_count}\t{get_rtc_timestamp()}\t{moisture:.1%}\r\n")
             f.close()
     except Exception as e:
         logger.error(f"Error saving moisture:  {e.args[0]}")
