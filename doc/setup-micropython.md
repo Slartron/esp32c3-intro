@@ -12,6 +12,11 @@ With other software the setup and usage might become easier, e.g. using an IDE l
 
 Additionally you will need a terminal program to connect to the ESP32 C3 via serial connection. For Windows you can use [Putty](https://www.chiark.greenend.org.uk/~sgtatham/putty/latest.html) or [Tera Term](https://ttssh2.osdn.jp/index.html.en).
 
+### USB Driver
+
+To connect the ESP32 C3 to your computer, you will need an driver for the USP-to-UART-bridge as described [here](https://docs.espressif.com/projects/esp-idf/en/v5.2.2/esp32c3/get-started/establish-serial-connection.html#connect-esp32-c3-to-pc).  
+I used the USB driver from [Silicon Labs](https://www.silabs.com/developers/usb-to-uart-bridge-vcp-drivers) which is linked on this page.
+
 ### Python
 
 [Python](https://www.python.org/downloads/) is required to execute many tools which are written in Python, e.g. esptool.py. Take care to also install `pip` and add Python to the PATH. Increase max PATH length is recommended.
