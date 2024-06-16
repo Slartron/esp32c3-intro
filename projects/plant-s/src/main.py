@@ -114,11 +114,33 @@ def get_moisture():
 
 def save_moisture(moisture):
     try:
+        record_count = read_record_count() + 1
         with open(DATAFILE, 'a', encoding='utf-8') as f:
             f.write(f"{record_count}\t{get_rtc_timestamp()}\t{moisture:.1%}\r\n")
             f.close()
+        write_record_count(record_count)
     except Exception as e:
         logger.error(f"Error saving moisture:  {e.args[0]}")
+
+
+def read_record_count():
+    try:
+        with open("recordcount.txt", "r", encoding='utf-8') as f:
+            content = f.read()
+            f.close()
+        return int(content)
+    except Exception as e:
+        logger.error(f"Error reading record count: {e}")
+        return 0
+
+
+def write_record_count(count):
+    try:
+        with open("recordcount.txt", "w", encoding='utf-8') as f:
+            f.write(f"{count}")
+            f.close()
+    except Exception as e:
+        logger.error(f"Error writing record count: {e}")
 
 
 def act_on_moisture(moisture):
@@ -166,7 +188,6 @@ try:
     # Initialization
     min=SENSOR_THEOR_MAX        # Variable to store absolute min value during whole measurement
     max=SENSOR_THEOR_MIN        # Variable to store absolute max value during whole measurement
-    record_count = 0            # Counter for records in data file
     init_rtc()
     logger = init_logger(__name__)
     moist_sensor = init_moisture_sensor()
