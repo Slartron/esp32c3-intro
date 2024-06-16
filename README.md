@@ -12,3 +12,4 @@ Here are the projects that are included in this repository, in order of creation
 4. [Access Internet via WLAN](projects/http-request-wlan/README.md)
 5. [Webserver](projects/http-server/README.md)
 6. [Accessing Files and Folders](projects/filesystem/README.md)
+7. [Plant-S](projects/plant-s/README.md)
