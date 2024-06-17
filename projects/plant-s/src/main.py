@@ -1,8 +1,11 @@
 from micropython import const
 from dfplayerminilib import Player
 from machine import RTC, Pin, ADC
+import requests
 import logging
 import time
+import json
+import uuid
 
 ## Defining global constants for application
 # Important values for application
@@ -11,6 +14,8 @@ MAX_MOISTURE = const(0.7)               # moisture values above this value are c
 MEASURE_INTERVALL_MINUTES = const(0)    # intervall in minutes for measuring moisture
 PLAYER_SOUND_DURATION = const(3)        # duration in seconds how long a sound is being played
 PLAYER_VOLUME = const(15)               # volume for sound output
+BASE_URL = const("https://localhost:7272")
+ACCOUNT_ID = str(uuid.uuid4())
 
 DATAFILE = const("data.csv")            # name for file to store measured data
 LOGFILE = const("error.log")            # name for logfile
@@ -80,7 +85,7 @@ def init_moisture_sensor():
 
 def get_rtc_timestamp():
     dt = rtc.datetime()
-    return "{}-{:02}-{:02} {:02}:{:02}:{:02}".format(dt[0],dt[1],dt[2],dt[4],dt[5],dt[6])
+    return "{}-{:02}-{:02}T{:02}:{:02}:{:02}".format(dt[0],dt[1],dt[2],dt[4],dt[5],dt[6])
 
 
 def get_moisture():
@@ -147,7 +152,8 @@ def act_on_moisture(moisture):
     try:
         if (moisture == None):
             logger.warning("Moisture is None, skip acting")
-            return
+            return        
+        post_data(moisture)
         if moisture < MIN_MOISTURE:
             play_sound(TO_DRY)
         elif moisture > MAX_MOISTURE:
@@ -165,6 +171,32 @@ def play_sound(condition):
         music.stop()
     except Exception as e:
         logger.error(f"Error playing sound: {e.args[0]}")
+
+
+def post_data(moisture):
+    try:        
+        url = BASE_URL + '/MoistureData'
+        resource = {
+            "id": str(uuid.uuid4()),
+            "accountId": ACCOUNT_ID,
+            "moisture": moisture,
+            "timestamp": get_rtc_timestamp()
+        }
+        response = requests.post(url, json = resource, verify=False)
+
+        if (response.ok):
+            logger.debug("Data posted successfully")
+            # obj=json.loads(response.text)
+            # print("ID: ", obj['id'])
+        else:
+            print("Error posting data: ", response.status_code)
+            err=json.loads(response.text)
+            print("Server says: ", err['errors'])
+
+    except Exception as e:
+        logger.error(f"Error posting data: {e.args[0]}")
+    finally:
+        response.close()
 
 
 def continue_loop():
